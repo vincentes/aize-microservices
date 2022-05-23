@@ -21,7 +21,7 @@ public class Cart {
 
 	public void sum(CartEntry element) {
 		for(CartEntry entry : entries) {
-			if(entry.getProductId() == element.getProductId()) {
+			if(entry.getProduct().equals(element.getProduct())) {
 				entry.setQuantity(entry.getQuantity() + element.getQuantity());
 			}
 		}

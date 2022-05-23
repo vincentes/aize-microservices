@@ -2,16 +2,14 @@ package com.bermudez.services.cart.model;
 
 import java.util.Objects;
 
-// TODO: DTO and actual model should be separate.
 public class CartEntry {
     private int quantity;
 
-    // TODO: Should have a Product member instead of product id.
-    private int productId;
+    private Product product;
 
-    public CartEntry(int quantity, int productId) {
+    public CartEntry(int quantity, Product product) {
         this.quantity = quantity;
-        this.productId = productId;
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -22,12 +20,12 @@ public class CartEntry {
         this.quantity = quantity;
     }
 
-    public int getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
@@ -35,11 +33,11 @@ public class CartEntry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CartEntry cartEntry = (CartEntry) o;
-        return productId == cartEntry.productId;
+        return product.equals(cartEntry.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId);
+        return Objects.hash(product);
     }
 }

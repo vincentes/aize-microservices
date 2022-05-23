@@ -21,14 +21,17 @@ public class ProductController {
 	
 	@GetMapping("/")
 	public List<Product> findAll() {
-		LOGGER.info("Employee find");
 		return repository.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public Product findById(@RequestParam Long id) {
+		return repository.findById(id);
 	}
 
 
 	@GetMapping("/query")
 	public List<Product> query(@RequestParam String text) {
-		LOGGER.info("Employee query");
 		return repository.query(text);
 	}
 	

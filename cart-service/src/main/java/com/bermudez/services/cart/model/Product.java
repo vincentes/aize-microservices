@@ -1,5 +1,7 @@
 package com.bermudez.services.cart.model;
 
+import java.util.Objects;
+
 public class Product {
 
 	private Long id;
@@ -7,10 +9,15 @@ public class Product {
 	private String description;
 	private Double price;
 
-	public Product(String title, String description, Double price) {
+	public Product(Long id, String title, String description, Double price) {
+		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -37,4 +44,16 @@ public class Product {
 		this.price = price;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Product product = (Product) o;
+		return id.equals(product.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }
